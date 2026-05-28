@@ -1,13 +1,17 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/api/")
-def home():
-    return {"message": "Backend Running"}
+@app.route("/")
+def root():
+    return {"message": "Server Running"}
 
-@app.route("/api/login")
+@app.route("/api/login", methods=["POST"])
 def login():
-    return {"message": "Login Works"}
+    data = request.json
+    return jsonify({
+        "message": "Login Works",
+        "received": data
+    })
