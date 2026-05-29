@@ -27,7 +27,9 @@ from app.models.user import User
 print("SQLAlchemy tracked tables:", Base.metadata.tables.keys())
 
 # Automatically create SQL tables based on SQLAlchemy Models
-Base.metadata.create_all(bind=engine)
+@app.on_event("startup")
+def startup():
+    Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="IT Management Enterprise System API")
 
