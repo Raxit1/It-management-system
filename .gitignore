@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Env
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Backend venv
+venv/
+
+# Editor
+.vscode/
+.idea
+.DS_Store
